@@ -10,23 +10,23 @@ class AbstractFactory
   end
 end
 
-class ConcreteFactory1 < AbstractFactory
+class Factory1 < AbstractFactory
   def create_small_dog
-    ConcreteSmall1.new
+    Small1.new
   end
 
   def create_big_dog
-    ConcreteBig1.new
+    Big1.new
   end
 end
 
-class ConcreteFactory2 < AbstractFactory
+class Factory2 < AbstractFactory
   def create_small_dog
-    ConcreteSmall2.new
+    Small2.new
   end
 
   def create_big_dog
-    ConcreteBig2.new
+    Big2.new
   end
 end
 
@@ -38,13 +38,13 @@ class AbstractSmall
   end
 end
 
-class ConcreteSmall1 < AbstractSmall
+class Small1 < AbstractSmall
   def res_func
     'the result of the small t1.'
   end
 end
 
-class ConcreteSmall2 < AbstractSmall
+class Small2 < AbstractSmall
   def res_func
     'the result of the small t2.'
   end
@@ -60,7 +60,7 @@ class AbstractBig
   end
 end
 
-class ConcreteBig1 < AbstractBig
+class Big1 < AbstractBig
   # @return [String]
   def res_func_big
     'The result of the big t1.'
@@ -72,7 +72,7 @@ class ConcreteBig1 < AbstractBig
   end
 end
 
-class ConcreteBig2 < AbstractBig
+class Big2 < AbstractBig
   # @return [String]
   def res_func_big
     'The result of the big t2.'
@@ -93,10 +93,10 @@ def client_code(factory)
 end
 
 puts 'Client: Testing client code with the first factory type:'
-client_code(ConcreteFactory1.new)
+client_code(Factory1.new)
 
 puts "\n"
 
 puts 'Client: Testing the same client code with the second factory type:'
-client_code(ConcreteFactory2.new)
+client_code(Factory2.new)
 
